@@ -46,6 +46,18 @@ if($_POST)
         
         
     
+    }else
+    if($transaccion == 4)
+    {
+        $index=$_POST['id'];
+        if(isset($_FILES[$index])){
+            $datos[0]=$_FILES[$index];
+            $datos[1]=$_POST['cliente'];
+            $datos[2]=$_POST['firma'];
+            $datos[3]=$_POST['tipo'];
+		    $datos[4]=$_POST['idUsua'];
+            subir_archivos($datos);
+        }
     }
     
 //----------- fin gestion ----------/    

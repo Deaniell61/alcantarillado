@@ -218,3 +218,73 @@ $('#btnInsertarP').click(function(){
 
 	
 });
+
+function subirImagenes(archivo,tipoAR,id,idusua){
+	//document.getElementById('barra_de_progreso').hidden = false;
+	var archivos=archivo.files;
+	var i=0;
+	var size=archivos[i].size;
+	var type=archivos[i].type;
+	var name=$('#nombreP').val();
+    var usua=idusua;
+   // alert(archivo);
+    	if(size<(80*(1024*1024))){
+        if(type=="image/png" || type=="image/jpg" || type=="image/jpeg"){    
+            //document.getElementById(id+'Puesta').src = path;
+			$("#"+id).upload('../core/controlador/clientesControlador.php',
+    			{
+					cliente: $('#cuiP').val(),
+    				firma: name,
+                    id: id,
+                    tipo: tipoAR,
+                    idUsua: usua,
+                    trasDato: 4
+				},
+				function(respuesta) 
+				{
+					//Subida finalizada.
+					$('#mensajeP2').html(respuesta);
+				}, 
+				function(progreso, valor) 
+				{
+                    
+					//$("#barra_de_progreso").val(valor);
+				}
+			);
+        }else{
+            $('#mensajeP2').html('La imagen debe ser de tipo PNG');
+            
+        }
+		}else{
+        	$('#mensajeP2').html('La imagen es muy pesada, se recomienda subir imagenes de menos de 2MB.');
+            
+		}
+}
+
+function previsualizarImagenes(archivo,tipoAR,id){
+	//document.getElementById('barra_de_progreso').hidden = false;
+	var archivos=archivo.files;
+	var i=0;
+	var size=archivos[i].size;
+	var type=archivos[i].type;
+	var name=$('#nombreP').val();
+    var target=archivo.value;
+    if(size<(80*(1024*1024))){
+        if(type=="image/png" || type=="image/jpg" || type=="image/jpeg"){    
+            if (archivo.files && archivo.files[0]) {
+            var reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById(id+'Puesta').src = e.target.result;
+                    }
+                    reader.readAsDataURL(archivos[i]);
+            }
+        }else{
+            $('#mensajeP2').html('La imagen debe ser de tipo PNG');
+            location.href="#mensajeP2";
+           
+        }
+    }else{
+        $('#mensajeP2').html('La imagen es muy pesada, se recomienda subir imagenes de menos de 2MB.');
+        location.href="#mensajeP2";
+    }
+}

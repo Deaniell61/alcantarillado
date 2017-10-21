@@ -59,7 +59,7 @@ function login($user, $pass)
 
 function cargarModulos($idUser)
 {
-	$sql = "SELECT m.Nombre,m.Dir,m.RefId,a.agrega,a.elimina,a.modifica,m.tipo FROM accesos a inner join modulos m on m.idModulos=a.idModulo where a.idUsuarios=$idUser order by m.idModulos";
+	$sql = "SELECT m.Nombre,m.Dir,m.RefId,a.agrega,a.elimina,a.modifica,m.tipo FROM accesos a inner join modulos m on m.idModulos=a.idModulo where a.idUsuarios=$idUser and m.estado=1 order by m.idModulos";
     
     $mysql = conexionMysql(); 
     
@@ -425,7 +425,7 @@ function cargarModulosIniciales()
 session_start();
     $mysql = conexionMysql();
     $form="";
-    $sql = "SELECT nombre,refid,idmodulos from modulos";
+    $sql = "SELECT nombre,refid,idmodulos from modulos where estado=1";
     
     if($resultado = $mysql->query($sql))
     {

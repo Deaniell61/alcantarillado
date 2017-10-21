@@ -37,7 +37,7 @@
 
           <!-- ********************************** modal ********************************** --> 
 
-          <!-- nuevo ---> 
+          <!-- nuevo --> 
 
           <div id="modal1P" class="modal">
               <div class="modal-content">
@@ -55,40 +55,35 @@
                       </div>
                       
                       
-                      <div class="input-field col s10" hidden>
-                          <input id="codigoP" type="text" class="validate">
-                          
-                      </div>
-                       <div class="input-field col s10">
-                          <i  class="material-icons prefix"><img class="iconologin" src="../app/img/carnet.png"/></i>
-                          <input id="nitP" type="text" class="validate">
-                          <label for="icon_telephone" ><span class="etiquelogin">NIT</span></label>
-                      </div>
-                      <div class="input-field col s10">
-                          <i class="material-icons prefix"><img class="iconologin" src="../app/img/usuario.png" /></i>
-                          <input id="nombreP" type="text" class="validate">
-                          <label for="icon_prefix" ><span class="etiquelogin">Nombre</span></label>
-                      </div>
-                       <div class="input-field col s10">
-                          <i class="material-icons prefix"><img class="iconologin" src="../app/img/usuario.png" /></i>
-                          <input id="apellidoP" type="text" class="validate">
-                          <label for="icon_prefix" ><span class="etiquelogin">Apellido</span></label>
-                      </div>
-                       <div class="input-field col s10">
-                          <i  class="material-icons prefix"><img class="iconologin" src="../app/img/telefono.png"/></i>
-                          <input id="telefonoP" type="text" class="validate">
-                          <label for="icon_telephone" ><span class="etiquelogin">Telefono</span></label>
-                      </div>
-                      <div class="input-field col s10">
-                          <i  class="material-icons prefix"><img class="iconologin" src="../app/img/calle.png"/></i>
-                          <input id="direccionP" type="text" class="validate">
-                          <label for="icon_telephone" ><span class="etiquelogin">Direccion</span></label>
-                      </div>
+                      <div class="row">
+                      
+                                           <div class="input-field col s10 offset-s2">
+                                             <div class="input-field col s6">
+                                                <div class="file-field input-field">
+                                                  <div class="btn">
+                                                    <span>Foto de Perfil</span>
+                                                    <input type="file" id="imagen1" name="imagen1" onChange="previsualizarImagenes(this,'perfil','imagen1');">
+                                                  </div>
+                                                  <div class="file-path-wrapper">
+                                                    <input id="foto" class="file-path validate" type="text" placeholder="Foto">
+                                                  </div>
+                                                </div>
+                      
+                      
+                                                        <div class="foto bordefoto" style="height:400px;">
+                                                          <img class="fotouser" id="imagen1Puesta" src="../app/img/foto.jpg" />
+                                                        </div>
+                                              </div>          
+                                         </div>
+                      
+                                         
+                      
+                                         </div>
                      
                   </form>
               </div>
               <div class="modal-footer">
-                  <a id="btnInsertarP2" onClick="ingresarClienteP();" class=" modal-action waves-effect waves-light btn blue lighten-1 " >Aceptar</a>
+                  <a id="btnInsertarP2" onClick="subirImagenes(document.getElementById('imagen1'),'perfil','imagen1','1');" class=" modal-action waves-effect waves-light btn blue lighten-1 " >Aceptar</a>
 
 
               </div>
