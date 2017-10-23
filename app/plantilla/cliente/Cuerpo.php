@@ -46,7 +46,49 @@
                       <div class="row">
                           <div class="nav-wrapper grey darken-4">
                               <div>
-                                  <p class="encabezadotextomodal"> Cliente Nuevo </p>
+                                  <p class="encabezadotextomodal"> Subir foto </p>
+
+                                  <a id="modalcerrar"  onClick="cierre();"  class=" modal-action modal-close waves-effect waves-light right  " ><i class="material-icons prefix"><img class="iconocerrarmodal" src="../app/img/desenfrenado.png"></i></a> 
+                              </div>	
+
+                          </div>
+                      </div>
+                      
+                      
+                      <div class="row">
+                      
+                                           <div class="input-field col s10 offset-s1">
+                                           <div class="col-sm-6 ol-md-6 col-xs-12">
+                                                <div >
+                                                    <h3>Subir Foto</h3>
+                                                    <input type="file" id="input-file-now-custom-2" class="dropify" data-height="400"  name="input-file-now-custom-2"  />
+                                                </div>
+                                            </div>
+                                                     
+                                         </div>
+                      
+                                         
+                      
+                                         </div>
+                     
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <a id="btnInsertarP2" onClick="subirImagenes(document.getElementById('input-file-now-custom-2'),'perfil','input-file-now-custom-2','1');" class=" modal-action waves-effect waves-light btn blue lighten-1 " >Aceptar</a>
+
+
+              </div>
+          </div>
+          <!-- nuevo fin -->
+
+            <div id="modal3P" class="modal">
+              <div class="modal-content">
+              <div id="mensajeP3"></div>
+                  <form class="col s8">
+                      <div class="row">
+                          <div class="nav-wrapper grey darken-4">
+                              <div>
+                                  <p class="encabezadotextomodal"> ver Foto </p>
 
                                   <a id="modalcerrar"  onClick="cierre();"  class=" modal-action modal-close waves-effect waves-light right  " ><i class="material-icons prefix"><img class="iconocerrarmodal" src="../app/img/desenfrenado.png"></i></a> 
                               </div>	
@@ -59,19 +101,11 @@
                       
                                            <div class="input-field col s10 offset-s2">
                                              <div class="input-field col s6">
-                                                <div class="file-field input-field">
-                                                  <div class="btn">
-                                                    <span>Foto de Perfil</span>
-                                                    <input type="file" id="imagen1" name="imagen1" onChange="previsualizarImagenes(this,'perfil','imagen1');">
-                                                  </div>
-                                                  <div class="file-path-wrapper">
-                                                    <input id="foto" class="file-path validate" type="text" placeholder="Foto">
-                                                  </div>
-                                                </div>
+                                                
                       
                       
                                                         <div class="foto bordefoto" style="height:400px;">
-                                                          <img class="fotouser" id="imagen1Puesta" src="../app/img/foto.jpg" />
+                                                          <img class="fotouser" style="width: 240%;margin-left: -40%;height:100%;" id="imagenver1" src="../app/img/foto.jpg" />
                                                         </div>
                                               </div>          
                                          </div>
@@ -83,14 +117,11 @@
                   </form>
               </div>
               <div class="modal-footer">
-                  <a id="btnInsertarP2" onClick="subirImagenes(document.getElementById('imagen1'),'perfil','imagen1','1');" class=" modal-action waves-effect waves-light btn blue lighten-1 " >Aceptar</a>
+                  <a id="btnInsertarP33" href="" target="_blank" class=" modal-action waves-effect waves-light btn blue lighten-1 " >Descargar</a>
 
 
               </div>
           </div>
-          <!-- nuevo fin --->
-
-
          
 
          

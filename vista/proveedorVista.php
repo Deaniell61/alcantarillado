@@ -17,13 +17,12 @@ echo "<script>
 <table id='tablaPro' class='bordered centered highlight responsive-table centrarT'>
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Direccion</th>
-            <th>Nit</th>
-            <th>Cuenta de Deposito</th>
-            <th>Telefono</th>
-            <th></th>
+        <th>Vista Previa</th>
+        <th>Nombre</th>
+        <th>Tamaño</th>
+        <th>Tipo</th>
+
+        <th></th>
 
 
         </tr>
@@ -32,7 +31,7 @@ echo "<script>
         <?php
 	$extra="";
     $mysql = conexionMysql();
-    $sql = "SELECT idProveedor,NombreEmpresa,Direccion,Nit,Telefono,cuentadepoito FROM proveedor order by idproveedor asc";
+    $sql = "SELECT nombre,url,tamanio,tipo,id FROM archivos where video='1' ";
     $tabla="";
     if($resultado = $mysql->query($sql))
     {
@@ -50,15 +49,19 @@ echo "<script>
 
                 $tabla .= "<tr>";
 
+                $tabla .="<td> <video style=\"width: 50px;height:50px;\" controls=\"controls\">
+                <source src=\"" .$fila["1"]."\"  type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"; video/mov; video/flv; video/mkv; video/wmv'>
+               
+                Your browser does not support HTML5 video.
+                    </video></td>";
                 $tabla .="<td>"     .$fila["0"].    "</td>";
-                $tabla .="<td>" .$fila["1"].      "</td>";
-                $tabla .="<td>" .$fila["2"].      "</td>";
+                $tabla .="<td>" .$fila["2"].      " bytes</td>";
 				$tabla .="<td>" .$fila["3"].      "</td>";
-				$tabla .="<td>" .$fila["5"].      "</td>";
-				$tabla .="<td>" .$fila["4"].      "</td>";
-                $tabla .="<td class='anchoC'><a class='waves-effect waves-light btn modal-close  green lighten-1 modal-trigger botonesm editar' onclick=\"seleccionar('".$fila["0"]."')\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/seleccion.png' /></i></a>";
-				//$tabla .="<td class='anchoC'><a class='waves-effect waves-light btn blue dark-1 modal-trigger botonesm editar' onclick=\"distribuidores('".$fila["0"]."')\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/nuevod.png' /></i></a>";
-                   $tabla .="<a  onclick=\"editarProv('".$fila["0"]."')\" class='waves-effect waves-light btn orange lighten-1 modal-trigger botonesm editar' )\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/editar.png' /></i></a>";
+
+                $tabla .="<td class='anchoC'>";
+				
+                $tabla .="<a class='waves-effect waves-light btn orange lighten-1 modal-trigger botonesm editar' onclick=\"editarProv('".$fila["4"]."','".$fila["1"]."')\")\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/editar.png' /></i></a>";
+
 
 
                 $tabla .= "</tr>";

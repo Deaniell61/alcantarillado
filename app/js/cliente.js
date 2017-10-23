@@ -10,7 +10,46 @@ var passHabilita=0;
 //***********************************
 //************************** tabla ***********************
 
+$(document).ready(function() {
+        // Basic
+        $('.dropify').dropify();
 
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function(event, element) {
+            return confirm("Desea eliminar la foto \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function(event, element) {
+            alert('Foto eliminada');
+        });
+
+        drEvent.on('dropify.errors', function(event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
 $('#tablaPro').DataTable( {
 
     info:     false,
@@ -182,11 +221,12 @@ function ingresarClienteP(){
 
 }
 
-function editarCliente(id)
+function editarCliente(id,url)
 {
-	$('#btnActualizar').show();
-    $('#btnInsertar').hide();
-    $('#modal1P').openModal();
+	
+    $('#modal3P').openModal();
+    $('#imagenver1').attr('src',url)
+    $('#btnInsertarP33').attr('href',url)
 	trasDato = 2;
         $.ajax
         ({
@@ -222,7 +262,8 @@ $('#btnInsertarP').click(function(){
 function subirImagenes(archivo,tipoAR,id,idusua){
 	//document.getElementById('barra_de_progreso').hidden = false;
 	var archivos=archivo.files;
-	var i=0;
+    var cant = archivos.length
+    for(i=0;i<cant;i++){
 	var size=archivos[i].size;
 	var type=archivos[i].type;
 	var name=$('#nombreP').val();
@@ -258,7 +299,8 @@ function subirImagenes(archivo,tipoAR,id,idusua){
 		}else{
         	$('#mensajeP2').html('La imagen es muy pesada, se recomienda subir imagenes de menos de 2MB.');
             
-		}
+        }
+    }
 }
 
 function previsualizarImagenes(archivo,tipoAR,id){

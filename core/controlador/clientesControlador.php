@@ -49,7 +49,7 @@ if($_POST)
     }else
     if($transaccion == 4)
     {
-        $index=$_POST['id'];
+         $index=$_POST['id'];
         if(isset($_FILES[$index])){
             $datos[0]=$_FILES[$index];
             $datos[1]=$_POST['cliente'];

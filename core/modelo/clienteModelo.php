@@ -105,7 +105,7 @@ function subir_archivos($datos){
         $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
         $tipo=$archivo['type'];
         $nombre=str_replace(".".$extension,"",$archivo['name']);
-        $nombreUso=$datos[1]."_".$datos[2]."_".$datos[3].".".$extension;
+        $nombreUso=$archivo['name'];
         $ruta_provisional=$archivo['tmp_name'];
         $size=$archivo['size'];
         $dimensiones=getimagesize($ruta_provisional);
@@ -142,9 +142,10 @@ function subir_archivos($datos){
                 if (move_uploaded_file($ruta_provisional, $add)) {
                             $dat[0]=$dir;
                             $dat[1]=$file_name;
-                            $dat[2]=$datos[1];
-                            $dat[3]=$datos[4];
-                            $dat[4]=$datos[3];
+                            $dat[2]=$tipo;
+                            $dat[3]=substr($add,3,strlen($add));
+                            $dat[4]=$add;
+                            $dat[5]=$size;
                             guardar_imagen($dat);
                 }else{
                             echo "Error al subir el archivo1";
@@ -156,11 +157,14 @@ function subir_archivos($datos){
 }
 function guardar_imagen($datos)
 {
-    $dir="/".$datos[2]."/";
+    $dir="/".$datos[0]."/";
     $foto=$datos[1];
-    if(file_exists($datos[0].$datos[1])){
-        
-            $sql = "insert into archivos(url) values('".$dir.$foto."')";
+    if(file_exists($datos[4])){
+        if($datos[2]=="image/png" || $datos[2]=="image/jpg" || $datos[2]=="image/jpeg"){
+            $sql = "insert into archivos(url,tipo,tamanio,nombre,video) values('".$datos[3]."','".$datos[2]."','".$datos[5]."','".$datos[1]."',0)";
+        }else{
+            $sql = "insert into archivos(url,tipo,tamanio,nombre,video) values('".$datos[3]."','".$datos[2]."','".$datos[5]."','".$datos[1]."',1)";
+        }
         
     }
     

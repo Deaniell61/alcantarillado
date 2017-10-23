@@ -177,10 +177,13 @@ function ingresarProveedorP(){
 
 
 
-function editarProv(id)
+function editarProv(id,url)
 {
 
-    $('#modal1P').openModal();
+    $('#modal3P').openModal();
+    $('#btnInsertarP33').attr('href',url)
+    $('#imagenver1 > source').attr('src',url);
+    document.getElementById('imagenver1').load();
 	trasDato = 2;
         $.ajax
         ({
@@ -195,6 +198,77 @@ function editarProv(id)
 	
 }
 
+
+function subirImagenes(archivo,tipoAR,id,idusua){
+	//document.getElementById('barra_de_progreso').hidden = false;
+	var archivos=archivo.files;
+	var i=0;
+	var size=archivos[i].size;
+	var type=archivos[i].type;
+	var name=$('#nombreP').val();
+    var usua=idusua;
+   // alert(archivo);
+    	if(size<(100*(1024*1024))){
+        if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/wmv"){    
+            //document.getElementById(id+'Puesta').src = path;
+			$("#"+id).upload('../core/controlador/clientesControlador.php',
+    			{
+					cliente: $('#cuiP').val(),
+    				firma: name,
+                    id: id,
+                    tipo: tipoAR,
+                    idUsua: usua,
+                    trasDato: 4
+				},
+				function(respuesta) 
+				{
+					//Subida finalizada.
+					$('#mensajeP2').html(respuesta);
+				}, 
+				function(progreso, valor) 
+				{
+                    
+					//$("#barra_de_progreso").val(valor);
+				}
+			);
+        }else{
+            $('#mensajeP2').html('El formato de video no es valido');
+            
+        }
+		}else{
+        	$('#mensajeP2').html('El video es demaciado Grande, no puede exceder los 100 MB.');
+            
+		}
+}
+
+function previsualizarImagenes(archivo,tipoAR,id){
+	//document.getElementById('barra_de_progreso').hidden = false;
+	var archivos=archivo.files;
+	var i=0;
+	var size=archivos[i].size;
+	var type=archivos[i].type;
+	var name=$('#nombreP').val();
+    var target=archivo.value;
+    if(size<(100*(1024*1024))){
+        if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/wmv"){    
+            if (archivo.files && archivo.files[0]) {
+            var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#'+id+'Puesta > source').attr('src',e.target.result);
+                        document.getElementById(id+'Puesta').load();
+                    }
+                    reader.readAsDataURL(archivos[i]);
+            }
+        }else{
+            $('#mensajeP2').html('El formato de video no es valido');
+            location.href="#mensajeP2";
+           
+        }
+    }else{
+        $('#mensajeP2').html('El video es demaciado Grande, no puede exceder los 100 MB.');
+        location.href="#mensajeP2";
+    }
+}
 
 $('#modalProveedor').click(function(){
 	$('#modal4').closeModal();
