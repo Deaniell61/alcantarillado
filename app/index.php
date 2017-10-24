@@ -1,5 +1,9 @@
     
-    <script>
-    	window.location.href="../index.php";
-    </script>
+    
+    <?php 
+      include("vista/loginVista.php");
+      Valida();      
+
+     ?>
+    
     
