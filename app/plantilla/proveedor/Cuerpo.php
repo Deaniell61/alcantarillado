@@ -54,23 +54,21 @@
                   
                   
                   <div class="row">
-                  
+                  <div class="input-field col s10 offset-s1">
+                                           <div class="col-sm-6 ol-md-6 col-xs-12">
+                                                <div >
+                                                    <h3>Subir Video</h3>
+                                                    <input type="file" id="input-file-now-custom-2" class="dropify" data-height="200"  name="input-file-now-custom-2" onChange="previsualizarImagenes(this,'perfil','input-file-now-custom-2');"  />
+                                                </div>
+                                            </div>
+                                                     
+                                         </div>
                                        <div class="input-field col s10 offset-s2">
                                          <div class="input-field col s6">
-                                            <div class="file-field input-field">
-                                              <div class="btn">
-                                                <span>Video</span>
-                                                <input type="file" id="imagen1" name="imagen1" onChange="previsualizarImagenes(this,'perfil','imagen1');">
-                                              </div>
-                                              <div class="file-path-wrapper">
-                                                <input id="foto" class="file-path validate" type="text" placeholder="Foto">
-                                              </div>
-                                            </div>
-                  
-                  
+                                                    
                                                     <div class="foto bordefoto" style="height:400px;">
-                                                    <video id="imagen1Puesta"  style="width: 240%;margin-left: -40%;height:100%;" autoplay='true' controls="controls">
-                                                        <source src=""  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"; video/mov; video/flv; video/mkv; video/wmv'>
+                                                    <video id="input-file-now-custom-2Puesta"  style="width: 240%;margin-left: -40%;height:100%;" autoplay='true' controls="controls">
+                                                        <source src=""  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"; video/ogg; codecs="theora,vorbis"; video/webm; codecs="vp8,vorbis";video/x-ms-wmv'>
                                                        
                                                         Your browser does not support HTML5 video.
                                                     </video>
@@ -85,7 +83,7 @@
               </form>
           </div>
           <div class="modal-footer">
-              <a id="btnInsertarP2" onClick="subirImagenes(document.getElementById('imagen1'),'perfil','imagen1','1');" class=" modal-action waves-effect waves-light btn blue lighten-1 " >Aceptar</a>
+              <a id="btnInsertarP2" onClick="subirImagenes(document.getElementById('input-file-now-custom-2'),'perfil','input-file-now-custom-2','1');" class=" modal-action waves-effect waves-light btn blue lighten-1 " >Aceptar</a>
 
 
           </div>
@@ -117,7 +115,7 @@
                   
                                                     <div class="foto bordefoto" style="height:400px;">
                                                     <video id="imagenver1"  style="width: 240%;margin-left: -40%;height:100%;" autoplay="true" controls="controls">
-                                                        <source src=""  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                                        <source src=""  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"; video/ogg; codecs="theora,vorbis"; video/webm; codecs="vp8,vorbis";video/x-ms-wmv'>
                                                        
                                                         Your browser does not support HTML5 video.
                                                     </video>

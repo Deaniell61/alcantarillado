@@ -114,6 +114,15 @@ function subir_archivos($datos){
         $subir=false;
         $mensaje='';
         $subir=true;
+        $carpeta= 'archivos';
+
+        if($tipo=='video/mp4' || $tipo=="video/avi" || $tipo=="video/mov" || $tipo=="video/flv" || $tipo=="video/mkv" || $tipo=='video/x-ms-wmv'){
+            $carpeta= 'videos';
+        }
+
+        if($tipo == 'image/png' || $tipo=="image/jpg" || $tipo=='image/jpeg'){
+            $carpeta= 'imagenes';
+        }
             if($size < (80*(1024*1024))){
                 $subir=true;
             }else{
@@ -125,11 +134,11 @@ function subir_archivos($datos){
                     if(!is_dir($dir)) {
                         mkdir($dir, 0777);
                     }
-                $dir=strtolower("../../app/imagenes/archivos/");
+                $dir=strtolower("../../app/imagenes/".$carpeta."/");
                     if(!is_dir($dir)) {
                         mkdir($dir, 0777);
                     }
-                $dir=strtolower("../../app/imagenes/archivos/".date('d-m-Y')."/");
+                $dir=strtolower("../../app/imagenes/".$carpeta."/".date('d-m-Y')."/");
                     if(!is_dir($dir)) {
                         mkdir($dir, 0777);
                     }

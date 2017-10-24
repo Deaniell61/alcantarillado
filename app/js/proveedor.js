@@ -10,7 +10,46 @@ var passHabilita=0;
 //***********************************
 //************************** tabla ***********************
 
+$(document).ready(function() {
+    // Basic
+    $('.dropify').dropify();
 
+    // Translated
+    $('.dropify-fr').dropify({
+        messages: {
+            default: 'Glissez-déposez un fichier ici ou cliquez',
+            replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+            remove: 'Supprimer',
+            error: 'Désolé, le fichier trop volumineux'
+        }
+    });
+
+    // Used events
+    var drEvent = $('#input-file-events').dropify();
+
+    drEvent.on('dropify.beforeClear', function(event, element) {
+        return confirm("Desea eliminar la foto \"" + element.file.name + "\" ?");
+    });
+
+    drEvent.on('dropify.afterClear', function(event, element) {
+        alert('Foto eliminada');
+    });
+
+    drEvent.on('dropify.errors', function(event, element) {
+        console.log('Has Errors');
+    });
+
+    var drDestroy = $('#input-file-to-destroy').dropify();
+    drDestroy = drDestroy.data('dropify')
+    $('#toggleDropify').on('click', function(e) {
+        e.preventDefault();
+        if (drDestroy.isDropified()) {
+            drDestroy.destroy();
+        } else {
+            drDestroy.init();
+        }
+    })
+});
 $('#tablaPro').DataTable( {
 
     info:     false,
@@ -209,7 +248,7 @@ function subirImagenes(archivo,tipoAR,id,idusua){
     var usua=idusua;
    // alert(archivo);
     	if(size<(100*(1024*1024))){
-        if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/wmv"){    
+        if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/x-ms-wmv"){    
             //document.getElementById(id+'Puesta').src = path;
 			$("#"+id).upload('../core/controlador/clientesControlador.php',
     			{
@@ -250,7 +289,7 @@ function previsualizarImagenes(archivo,tipoAR,id){
 	var name=$('#nombreP').val();
     var target=archivo.value;
     if(size<(100*(1024*1024))){
-        if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/wmv"){    
+        if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/x-ms-wmv"){    
             if (archivo.files && archivo.files[0]) {
             var reader = new FileReader();
                     reader.onload = function (e) {
