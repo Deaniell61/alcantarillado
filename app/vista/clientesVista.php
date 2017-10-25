@@ -51,12 +51,12 @@ echo "<script>
 
                 $tabla .="<td><img style=\"width:50px;height:50px;\" src='" .$fila["1"]."'></td>";
                 $tabla .="<td>"     .$fila["0"].    "</td>";
-                $tabla .="<td>" .$fila["2"].      " bytes</td>";
+                $tabla .="<td>" .round(((($fila["2"])/1024)/1024),3).      " MB</td>";
 				$tabla .="<td>" .$fila["3"].      "</td>";
 
                 $tabla .="<td class='anchoC'>";
 				
-                $tabla .="<a class='waves-effect waves-light btn orange lighten-1 modal-trigger botonesm editar' onclick=\"editarCliente('".$fila["4"]."','".$fila["1"]."')\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/editar.png' /></i></a>";
+                $tabla .="<a class='waves-effect waves-light btn orange lighten-1 modal-trigger botonesm ver' onclick=\"editarCliente('".$fila["4"]."','".$fila["1"]."')\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/ojo.png' /></i></a>";
                 $tabla .="<a class='waves-effect waves-light btn red lighten-1 modal-trigger botonesm elim' onclick=\"eliminarCliente('".$fila["4"]."','".$fila["1"]."')\"><i class='material-icons left'><img class='iconoeditcrud' style=\"height:20px;width:20px;\" src='../app/img/boton-borrar.png' /></i></a>";
 
 
