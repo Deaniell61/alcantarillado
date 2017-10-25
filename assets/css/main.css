@@ -320,6 +320,7 @@
 				#header .inner {
 					display: inline-block;
 					vertical-align: middle;
+					margin-top: -65%;
 				}
 
 				#header h1 {

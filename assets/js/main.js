@@ -12,3 +12,5 @@ function openModalF(url){
 	$('#btnInsertarP33').attr('href',url)
 	
 }
+
+$('#loader').modal();

@@ -629,6 +629,8 @@ $(document).ready(function() {
                     }; return _; })(jQuery);
                     
                     parallelism.init();
+                    $('#loader').modal('hide');
+                    
              
             }  
         });
