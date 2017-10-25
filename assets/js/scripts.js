@@ -113,7 +113,7 @@ $(document).ready(function() {
                                 },
                     
                             // Touch device?
-                                isTouch: false,
+                                isTouch: true,
                     
                             // IE version.
                                 IEVersion: 99,
