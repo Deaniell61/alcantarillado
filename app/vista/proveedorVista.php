@@ -60,8 +60,9 @@ echo "<script>
 
                 $tabla .="<td class='anchoC'>";
 				
-                $tabla .="<a class='waves-effect waves-light btn orange lighten-1 modal-trigger botonesm editar' onclick=\"editarProv('".$fila["4"]."','".$fila["1"]."')\")\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/editar.png' /></i></a>";
-
+                $tabla .="<a class='waves-effect waves-light btn orange lighten-1 modal-trigger botonesm editar' onclick=\"editarProv('".$fila["4"]."','".$fila["1"]."')\"><i class='material-icons left'><img class='iconoeditcrud' src='../app/img/editar.png' /></i></a>";
+                $tabla .="<a class='waves-effect waves-light btn red lighten-1 modal-trigger botonesm elim' onclick=\"eliminarCliente('".$fila["4"]."','".$fila["1"]."')\"><i class='material-icons left'><img class='iconoeditcrud' style=\"height:20px;width:20px;\" src='../app/img/boton-borrar.png' /></i></a>";
+                
 
 
                 $tabla .= "</tr>";

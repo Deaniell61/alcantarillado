@@ -70,6 +70,44 @@ function  editarCliente($datos)
     
 }
 
+function  eliminarCliente($datos)
+{
+    
+    $mysql = conexionMysql();
+    $form="";
+    $sql = "DELETE from archivos where id='".$datos[0]."'";
+    
+    if($mysql->query($sql))
+    {
+      if(file_exists('../'.$datos[1])){
+
+          if(unlink('../'.$datos[1])){
+              echo "<script>location.reload();</script>";
+          }else{
+            echo "<script>alert('archivo no eliminado')</script>";
+            
+          }
+      }else{
+        echo "<script>alert('archivo no existe')</script>";
+        
+      }
+        
+    
+    }
+    else
+    {   
+    
+        $form = "<div>$sql</div>";
+    
+    }
+    
+    
+    $mysql->close();
+    
+    echo  ($form);
+    
+}
+
 function actualizarCliente($datos)
 {
     

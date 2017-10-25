@@ -237,6 +237,24 @@ function editarProv(id,url)
 	
 }
 
+function eliminarCliente(id,url)
+{
+	
+    if(confirm("Desea eliminar este video?")){
+	    trasDato = 7;
+        $.ajax
+        ({
+            type:"POST",
+            url:"../core/controlador/clientesControlador.php",
+            data:' id=' +  id + '&url=' + url + '&trasDato=' + trasDato,
+            success: function(resp)
+            {
+				$('#mensajeP2').html(resp);
+            }     
+        });
+    }
+	
+}
 
 function subirImagenes(archivo,tipoAR,id,idusua){
 	//document.getElementById('barra_de_progreso').hidden = false;

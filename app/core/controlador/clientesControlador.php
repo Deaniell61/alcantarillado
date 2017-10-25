@@ -70,6 +70,16 @@ if($_POST)
         $datos[0]=0;
         mostrarVideos($datos);
     
+    }else
+	if($transaccion == 7)
+    {
+        $datos[0]=$_POST['id'];
+        $datos[1]=$_POST['url'];
+		        
+        eliminarCliente($datos);
+        
+        
+    
     }
     
 //----------- fin gestion ----------/    

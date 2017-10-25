@@ -242,7 +242,24 @@ function editarCliente(id,url)
 }
 
 
-
+function eliminarCliente(id,url)
+{
+	
+    if(confirm("Desea eliminar esta foto?")){
+	    trasDato = 7;
+        $.ajax
+        ({
+            type:"POST",
+            url:"../core/controlador/clientesControlador.php",
+            data:' id=' +  id + '&url=' + url + '&trasDato=' + trasDato,
+            success: function(resp)
+            {
+				$('#mensajeP2').html(resp);
+            }     
+        });
+    }
+	
+}
 
 $('#modalcliente').click(function(){
 	$('#modal4').closeModal();
