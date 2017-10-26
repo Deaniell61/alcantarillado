@@ -1,3 +1,5 @@
+
+
 function openModal(url){
 	$('#myModal').modal();
     $('#imagenver1 > source').attr('src',url);
