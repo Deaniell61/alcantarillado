@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 18-10-2017 a las 17:20:33
--- Versión del servidor: 5.7.19-0ubuntu0.16.04.1
+-- Tiempo de generación: 23-10-2017 a las 14:25:01
+-- Versión del servidor: 5.7.20-0ubuntu0.16.04.1
 -- Versión de PHP: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `demoBase`
+-- Base de datos: `alcantarilla`
 --
 
 -- --------------------------------------------------------
@@ -51,16 +51,28 @@ INSERT INTO `accesos` (`idAccesos`, `Agrega`, `Modifica`, `Mostrar`, `Elimina`, 
 (8, 1, 1, 1, 1, 0, 8),
 (9, 1, 1, 1, 1, 0, 9),
 (10, 1, 1, 1, 1, 0, 10),
-(49, 1, 1, NULL, 1, 4, 1),
-(50, 1, 1, NULL, 1, 4, 2),
-(51, 1, 1, NULL, 1, 4, 3),
-(52, 1, 1, NULL, 1, 4, 4),
-(53, 1, 1, NULL, 1, 4, 5),
-(54, 1, 1, NULL, 1, 4, 6),
-(55, 1, 1, NULL, 1, 4, 7),
-(56, 1, 1, NULL, 1, 4, 8),
-(57, 1, 1, NULL, 1, 4, 9),
-(58, 1, 1, NULL, 1, 4, 10);
+(62, 1, 1, NULL, 1, 0, 11),
+(63, 1, 1, NULL, 1, 0, 12),
+(64, 1, 1, NULL, 1, 4, 11),
+(65, 1, 1, NULL, 1, 4, 12),
+(66, 1, 1, NULL, 1, 4, 1),
+(68, 1, 1, NULL, 1, 4, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `archivos`
+--
+
+CREATE TABLE `archivos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `url` varchar(250) DEFAULT NULL,
+  `tamanio` int(11) DEFAULT NULL,
+  `tipo` varchar(50) DEFAULT NULL,
+  `video` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -300,14 +312,16 @@ CREATE TABLE `modulos` (
 INSERT INTO `modulos` (`idModulos`, `Nombre`, `Dir`, `estado`, `RefId`, `tipo`) VALUES
 (1, 'Inicio', '../app/img/inicio.png', 1, 'inicio', 0),
 (2, 'Usuarios', '../app/img/usuariotab.png', 1, 'usuario', 0),
-(3, 'Compras', '../app/img/carro-de-la-compra.png', 1, 'compras', 0),
-(4, 'Cuentas', '../app/img/etiqueta-del-precio.png', 1, 'cuentas', 0),
-(5, 'Estadistica', '../app/img/reparacion-mecanismo.png', 1, 'estadistica', 1),
-(6, 'Inventario', '../app/img/notas.png', 1, 'inventario', 0),
-(7, 'Ventas', '../app/img/diagrama.png', 1, 'ventas', 0),
-(8, 'Pagos', '../app/img/pagos.png', 1, 'pagos', 1),
-(9, 'Clientes', '../app/img/clientes.png', 1, 'clientes1', 0),
-(10, 'Proveedores', '../app/img/proveedores.png', 1, 'proveedores1', 0);
+(3, 'Compras', '../app/img/carro-de-la-compra.png', 0, 'compras', 0),
+(4, 'Cuentas', '../app/img/etiqueta-del-precio.png', 0, 'cuentas', 0),
+(5, 'Estadistica', '../app/img/reparacion-mecanismo.png', 0, 'estadistica', 1),
+(6, 'Inventario', '../app/img/notas.png', 0, 'inventario', 0),
+(7, 'Ventas', '../app/img/diagrama.png', 0, 'ventas', 0),
+(8, 'Pagos', '../app/img/pagos.png', 0, 'pagos', 1),
+(9, 'Clientes', '../app/img/clientes.png', 0, 'clientes1', 0),
+(10, 'Proveedores', '../app/img/proveedores.png', 0, 'proveedores1', 0),
+(11, 'Fotos', '../app/img/carro-de-la-compra.png', 1, 'clientes1', 0),
+(12, 'Videos', '../app/img/diagrama.png', 1, 'proveedores1', 0);
 
 -- --------------------------------------------------------
 
@@ -552,8 +566,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuarios`, `Email`, `user`, `Contra`, `estado`, `idRol`, `idEmpleados`) VALUES
-(0, NULL, 'foxy', 'foxylabs', 1, 0, NULL),
-(4, NULL, 'usuario', '123456789', 1, 2, NULL);
+(0, NULL, 'admin', '123412341234', 1, 0, NULL),
+(4, NULL, 'usuario', 'proyecto1', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -602,6 +616,12 @@ ALTER TABLE `accesos`
   ADD PRIMARY KEY (`idAccesos`),
   ADD KEY `AccesoModulo_idx` (`idModulo`),
   ADD KEY `AccesoUsuarios_idx` (`idUsuarios`);
+
+--
+-- Indices de la tabla `archivos`
+--
+ALTER TABLE `archivos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `cliente`
@@ -823,42 +843,47 @@ ALTER TABLE `ventasdetalle`
 -- AUTO_INCREMENT de la tabla `accesos`
 --
 ALTER TABLE `accesos`
-  MODIFY `idAccesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `idAccesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+--
+-- AUTO_INCREMENT de la tabla `archivos`
+--
+ALTER TABLE `archivos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `comisiones`
 --
 ALTER TABLE `comisiones`
-  MODIFY `idComisiones` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idComisiones` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `compradetalle`
 --
 ALTER TABLE `compradetalle`
-  MODIFY `idCompraDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=577;
+  MODIFY `idCompraDetalle` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `idCompras` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `idCompras` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `correos`
 --
 ALTER TABLE `correos`
-  MODIFY `idCorreos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
+  MODIFY `idCorreos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `cuentascobrar`
 --
 ALTER TABLE `cuentascobrar`
-  MODIFY `idCuentasC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `idCuentasC` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `cuentaspagar`
 --
 ALTER TABLE `cuentaspagar`
-  MODIFY `idCuentasP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `idCuentasP` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
 --
@@ -873,7 +898,7 @@ ALTER TABLE `distribuidores`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `idEmpleados` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEmpleados` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `gastos`
 --
@@ -883,7 +908,7 @@ ALTER TABLE `gastos`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `idInventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=505;
+  MODIFY `idInventario` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
@@ -893,17 +918,17 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `modulos`
 --
 ALTER TABLE `modulos`
-  MODIFY `idModulos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idModulos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `movimientosc`
 --
 ALTER TABLE `movimientosc`
-  MODIFY `idMovimientoC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idMovimientoC` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `movimientosp`
 --
 ALTER TABLE `movimientosp`
-  MODIFY `idMovimientoP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idMovimientoP` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `municipio`
 --
@@ -918,12 +943,12 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=505;
+  MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `puestos`
 --
@@ -938,7 +963,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `sueldos`
 --
 ALTER TABLE `sueldos`
-  MODIFY `idSueldos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idSueldos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `tipocompra`
 --
@@ -968,12 +993,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
+  MODIFY `idVentas` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `ventasdetalle`
 --
 ALTER TABLE `ventasdetalle`
-  MODIFY `idVentaDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
+  MODIFY `idVentaDetalle` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
