@@ -4,6 +4,10 @@ define('USER','root');
 define('PASS','1234');
 define('DB','alcantarilla');
 
+// define('HOST','localhost');
+// define('USER','u896167657_fatim');
+// define('PASS','E6SK~g3IJz@/');
+// define('DB','u896167657_fatim');
 
 // define('HOST','localhost');
 // define('USER','u328821419_sanan');
