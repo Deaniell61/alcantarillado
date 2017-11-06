@@ -70,7 +70,8 @@ CREATE TABLE `archivos` (
   `url` varchar(250) DEFAULT NULL,
   `tamanio` int(11) DEFAULT NULL,
   `tipo` varchar(50) DEFAULT NULL,
-  `video` int(11) DEFAULT NULL
+  `video` int(11) DEFAULT NULL,
+  `fecha` timestamp DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
