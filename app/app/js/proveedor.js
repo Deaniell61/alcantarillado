@@ -265,7 +265,7 @@ function subirImagenes(archivo,tipoAR,id,idusua){
 	var name=$('#nombreP').val();
     var usua=idusua;
    // alert(archivo);
-    	if(size<(100*(1024*1024))){
+    	if(1){
         if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/x-ms-wmv"){    
             //document.getElementById(id+'Puesta').src = path;
 			$("#"+id).upload('../core/controlador/clientesControlador.php',
@@ -306,7 +306,7 @@ function previsualizarImagenes(archivo,tipoAR,id){
 	var type=archivos[i].type;
 	var name=$('#nombreP').val();
     var target=archivo.value;
-    if(size<(100*(1024*1024))){
+    if(1){
         if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/x-ms-wmv"){    
             if (archivo.files && archivo.files[0]) {
             var reader = new FileReader();

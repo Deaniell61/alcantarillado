@@ -161,7 +161,7 @@ function subir_archivos($datos){
         if($tipo == 'image/png' || $tipo=="image/jpg" || $tipo=='image/jpeg'){
             $carpeta= 'imagenes';
         }
-            if($size < (80*(1024*1024))){
+            if(1){
                 $subir=true;
             }else{
                 $mensaje="La imagen es muy grande";
