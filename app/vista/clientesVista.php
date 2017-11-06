@@ -93,10 +93,11 @@ function mostrarFotos($datos)
 {
 	$extra="";
     $mysql = conexionMysql();
-    $sql = "SELECT nombre,url,tamanio,tipo,id FROM archivos where video='0' ";
+    $sql = "SELECT nombre,url,tamanio,tipo,id,fecha FROM archivos where video='0' ";
     $tabla="";
     $tabla2="";
     $cont=0;
+    $fecha="";
     if($resultado = $mysql->query($sql))
     {
 
@@ -110,12 +111,17 @@ function mostrarFotos($datos)
 
             while($fila = $resultado->fetch_row())
             {
+                if($fecha!=substr($fila[5],0,10)){
+                    $fecha = substr($fila[5],0,10);
+                    $tabla2 .= '<li class="col-sm-12 text-center"><strong>'.$fecha.'</strong></li>';
+                }
                 if($cont==0){
                     $extra="active";
                 }else{
                     $extra="";
                 }
                 $tabla .= '<div class="'.$extra.' item" data-slide-number="'.$cont.'"><img src="../app/'.substr($fila[1],3).'" style="width:100%;height:100%;"><span style="color: black;z-index: 3;position: absolute;margin-top: -10%;padding-left: 2%;background-color: white;width: 100%;">'.$fila[0].'</span></div>';
+                
                 $tabla2 .= '<li class="col-sm-3"><a class="thumbnail" id="carousel-selector-'.$cont.'"><img src="../app/'.substr($fila[1],3).'" style="width:100%;height:100%;"></a></li>';
                 $cont++;
             }
@@ -145,10 +151,11 @@ function mostrarVideos($datos)
 {
 	$extra="";
     $mysql = conexionMysql();
-    $sql = "SELECT nombre,url,tamanio,tipo,id FROM archivos where video='1' ";
+    $sql = "SELECT nombre,url,tamanio,tipo,id,fecha FROM archivos where video='1' ";
     $tabla="";
     $tabla2="";
     $cont=0;
+    $fecha="";
     if($resultado = $mysql->query($sql))
     {
 
@@ -162,6 +169,10 @@ function mostrarVideos($datos)
 
             while($fila = $resultado->fetch_row())
             {
+                if($fecha!=substr($fila[5],0,10)){
+                    $fecha = substr($fila[5],0,10);
+                    $tabla2 .= '<li class="col-sm-12 text-center"><strong>'.$fecha.'</strong></li>';
+                }
                 if($cont==0){
                     $extra="active";
                 }else{

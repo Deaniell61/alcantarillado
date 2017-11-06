@@ -59,6 +59,7 @@
                                                 <div >
                                                     <h3>Subir Video</h3>
                                                     <input type="file" id="input-file-now-custom-2" class="dropify" data-height="200"  name="input-file-now-custom-2" onChange="previsualizarImagenes(this,'perfil','input-file-now-custom-2');"  />
+                                                    <progress value="0" max="100" id="barra_de_progreso"></progress>
                                                 </div>
                                             </div>
                                                      

@@ -64,7 +64,7 @@
                                                     <input type="file" id="input-file-now-custom-2" class="dropify" data-height="400"  name="input-file-now-custom-2"  />
                                                 </div>
                                             </div>
-                                                     
+                                            <progress value="0" max="100" id="barra_de_progreso"></progress> 
                                          </div>
                       
                                          
