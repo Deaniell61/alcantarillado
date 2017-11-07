@@ -9,7 +9,7 @@ var passHabilita=0;
 */
 //***********************************
 //************************** tabla ***********************
-
+cierre();
 $(document).ready(function() {
     // Basic
     $('.dropify').dropify();
@@ -264,6 +264,9 @@ function subirImagenes(archivo,tipoAR,id,idusua){
 	var type=archivos[i].type;
 	var name=$('#nombreP').val();
     var usua=idusua;
+        $('#Loading').openModal();
+        cierre();
+
    // alert(archivo);
     	if(1){
         if(type=="video/mp4" || type=="video/avi" || type=="video/mov" || type=="video/flv" || type=="video/mkv" || type=="video/x-ms-wmv"){    
@@ -280,12 +283,14 @@ function subirImagenes(archivo,tipoAR,id,idusua){
 				function(respuesta) 
 				{
 					//Subida finalizada.
-					$('#mensajeP2').html(respuesta);
+                    $('#mensajeP2').html(respuesta);
+                    $('#Loading').closeModal();
 				}, 
 				function(progreso, valor) 
 				{
+                    $("#barra_de_progreso1").val(valor);
                     
-					//$("#barra_de_progreso").val(valor);
+					$("#barra_de_progreso").val(valor);
 				}
 			);
         }else{

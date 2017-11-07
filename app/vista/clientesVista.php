@@ -178,8 +178,8 @@ function mostrarVideos($datos)
                 }else{
                     $extra="";
                 }
-                $tabla .= '<div class="'.$extra.' item" data-slide-number="'.$cont.'"><video  style="width: 100%;height:100%;" autoplay="true" controls="controls"><source src="../app/'.substr($fila[1],3).'"  type="video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"; video/ogg; codecs=\"theora,vorbis\"; video/webm; codecs=\"vp8,vorbis\";video/x-ms-wmv">Your browser does not support HTML5 video.</video><span style="color: black;z-index: 3;position: absolute;margin-left: -100%;background-color: white;width: 100%;">'.$fila[0].'</span></div>';
-                $tabla2 .= '<li class="col-sm-3"><a class="thumbnail" id="carousel-selector-'.$cont.'"><video  style="width: 100%;height:100%;" autoplay="true" controls="controls"><source src="../app/'.substr($fila[1],3).'"  type="video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"; video/ogg; codecs=\"theora,vorbis\"; video/webm; codecs=\"vp8,vorbis\";video/x-ms-wmv">Your browser does not support HTML5 video.</video></a></li>';
+                $tabla .= '<div class="'.$extra.' item" data-slide-number="'.$cont.'"><video  style="width: 100%;height:100%;" autoplay="true" controls="controls" muted="true"><source src="../app/'.substr($fila[1],3).'"  type="video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"; video/ogg; codecs=\"theora,vorbis\"; video/webm; codecs=\"vp8,vorbis\";video/x-ms-wmv" >Your browser does not support HTML5 video.</video><span style="color: black;z-index: 3;position: absolute;margin-left: -100%;background-color: white;width: 100%;">'.$fila[0].'</span></div>';
+                $tabla2 .= '<li class="col-sm-3"><a class="thumbnail" id="carousel-selector-'.$cont.'"><video  style="width: 100%;height:100%;" autoplay="true" controls="controls" muted="true"><source src="../app/'.substr($fila[1],3).'"  type="video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"; video/ogg; codecs=\"theora,vorbis\"; video/webm; codecs=\"vp8,vorbis\";video/x-ms-wmv">Your browser does not support HTML5 video.</video></a></li>';
                 $cont++;
                 
 

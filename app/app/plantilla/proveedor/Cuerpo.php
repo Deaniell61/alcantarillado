@@ -89,6 +89,15 @@
 
           </div>
       </div>
+
+      <div id="Loading" class="modal" style="width:500px;">
+            <div style="text-align:center;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" style="width:500px;height:500px;"></img>
+                <progress value="0" max="100" id="barra_de_progreso1"></progress>
+            </div>
+      </div>
+
+     
       <!-- nuevo fin -->
 
         <div id="modal3P" class="modal">

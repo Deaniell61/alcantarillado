@@ -284,6 +284,8 @@ function subirImagenes(archivo,tipoAR,id,idusua){
 	var size=archivos[i].size;
 	var type=archivos[i].type;
 	var name=$('#nombreP').val();
+    $('#Loading').openModal();
+    cierre();
     var usua=idusua;
    // alert(archivo);
     	if(size<(80*(1024*1024))){
@@ -300,13 +302,15 @@ function subirImagenes(archivo,tipoAR,id,idusua){
 				},
 				function(respuesta) 
 				{
-					//Subida finalizada.
+                    //Subida finalizada.
+                    $('#Loading').closeModal();
 					$('#mensajeP2').html(respuesta);
 				}, 
 				function(progreso, valor) 
 				{
                     
-					//$("#barra_de_progreso").val(valor);
+					$("#barra_de_progreso").val(valor);
+					$("#barra_de_progreso1").val(valor);
 				}
 			);
         }else{
