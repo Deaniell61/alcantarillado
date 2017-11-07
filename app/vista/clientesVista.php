@@ -93,7 +93,7 @@ function mostrarFotos($datos)
 {
 	$extra="";
     $mysql = conexionMysql();
-    $sql = "SELECT nombre,url,tamanio,tipo,id,fecha FROM archivos where video='0' ";
+    $sql = "SELECT nombre,url,tamanio,tipo,id,fecha FROM archivos where video='0' order by fecha";
     $tabla="";
     $tabla2="";
     $cont=0;
@@ -151,7 +151,7 @@ function mostrarVideos($datos)
 {
 	$extra="";
     $mysql = conexionMysql();
-    $sql = "SELECT nombre,url,tamanio,tipo,id,fecha FROM archivos where video='1' ";
+    $sql = "SELECT nombre,url,tamanio,tipo,id,fecha FROM archivos where video='1' order by fecha";
     $tabla="";
     $tabla2="";
     $cont=0;
