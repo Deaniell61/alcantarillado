@@ -5,6 +5,11 @@ define('PASS','1234');
 define('DB','alcantarilla');
 
 // define('HOST','localhost');
+// define('USER','u338861971_saqui');
+// define('PASS','t9GMVkGAPJrG9');
+// define('DB','u338861971_saqui');
+
+// define('HOST','localhost');
 // define('USER','u896167657_fatim');
 // define('PASS','E6SK~g3IJz@/');
 // define('DB','u896167657_fatim');
