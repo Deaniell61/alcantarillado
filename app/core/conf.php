@@ -4,6 +4,18 @@ define('USER','root');
 define('PASS','1234');
 define('DB','alcantarilla');
 
+//caminos
+// define('HOST','localhost');
+// define('USER','u224748063_prod');
+// define('PASS','fkQNCFA3mO7Z');
+// define('DB','u224748063_prod');
+
+//tratamiento de agua
+// define('HOST','localhost');
+// define('USER','u888088517_prod');
+// define('PASS','a2FHEdwUQZm1');
+// define('DB','u888088517_prod');
+
 // define('HOST','localhost');
 // define('USER','u338861971_saqui');
 // define('PASS','t9GMVkGAPJrG9');
