@@ -4,6 +4,65 @@ define('USER','root');
 define('PASS','1234');
 define('DB','alcantarilla');
 
+
+/********************CYC Construcciones */
+//Mejoramiento Camino Rural Sengunda Entrada de Aldea San Alberto Santa Teresa, San lorenzo, Suchitepequez.
+// define('HOST','localhost');
+// define('USER','u639754533_sanal');
+// define('PASS','9EAFt1CiRRxL');
+// define('DB','u639754533_sanal');
+
+//Mejoramiento Camino Rural Entre Puente Pachipa y Puente Chucul, Caserio Cujum, Aldea Barrios I, San Antonio Suchitepequez.
+// define('HOST','localhost');
+// define('USER','u639754533_pachi');
+// define('PASS','ZVf9YokANFEp');
+// define('DB','u639754533_pachi');
+
+//Mejoramiento Camino Rural Sector Machic Aldea Barrios I, San Antonio Suchitepequez.
+// define('HOST','localhost');
+// define('USER','u639754533_machi');
+// define('PASS','2bVOMYdobCvv');
+// define('DB','u639754533_machi');
+
+
+/************************************* */
+/************************************************* */
+//Mejoramiento Camino Salida Santo Domigo
+// define('HOST','localhost');
+// define('USER','u472906714_prod');
+// define('PASS','Izube7TQ8AGS');
+// define('DB','u472906714_prod');
+
+//Construccion Sistema de Agua Aldea Tonquin
+// define('HOST','localhost');
+// define('USER','u604872629_prod');
+// define('PASS','vC1dov1jR8qg');
+// define('DB','u604872629_prod');
+
+//Mejoramiento Camino entre Chipay
+// define('HOST','localhost');
+// define('USER','u794021935_prod');
+// define('PASS','OT2FQbtB1knE');
+// define('DB','u794021935_prod');
+
+//Mejoramiento Camino Primera calle san lorenzo
+// define('HOST','localhost');
+// define('USER','u612850009_prod');
+// define('PASS','8pAMNEmV28Sk');
+// define('DB','u612850009_prod');
+
+//Sistema Agua Brasilia Mazate
+// define('HOST','localhost');
+// define('USER','u641387047_prod');
+// define('PASS','Ppr6EMSQdfuz');
+// define('DB','u641387047_prod');
+
+//Agua Zona 1
+// define('HOST','localhost');
+// define('USER','u639416499_prod');
+// define('PASS','TlBiS2BWqXfk');
+// define('DB','u639416499_prod');
+/*************************************** */
 //caminos
 // define('HOST','localhost');
 // define('USER','u224748063_prod');
