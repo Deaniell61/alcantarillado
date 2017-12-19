@@ -43,17 +43,17 @@ echo "<script>
 
         else
         {
-
+/*<video style=\"width: 50px;height:50px;\" controls=\"controls\">
+                <source src=\"" .$fila["1"]."\"  type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"; video/mov; video/flv; video/mkv; video/wmv'>
+               
+                Your browser does not support HTML5 video.
+                    </video>*/
             while($fila = $resultado->fetch_row())
             {
 
                 $tabla .= "<tr>";
 
-                $tabla .="<td> <video style=\"width: 50px;height:50px;\" controls=\"controls\">
-                <source src=\"" .$fila["1"]."\"  type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"; video/mov; video/flv; video/mkv; video/wmv'>
-               
-                Your browser does not support HTML5 video.
-                    </video></td>";
+                $tabla .="<td> </td>";
                 $tabla .="<td>"     .$fila["0"].    "</td>";
                 $tabla .="<td>" .round(((($fila["2"])/1024)/1024),3).      " MB</td>";
                 $tabla .="<td>" .$fila["3"].      "</td>";
